@@ -112,6 +112,35 @@ Get-AuthenticodeSignature "/path/to/script/file.ps1"
 
 # ブロック解除
 Unblock-File -Path "/path/to/script/file.ps1"
+```
 
+### ホームディレクトリに日本語が含まれているせいで、コマンドが不具合を起こす問題の対処
+
+- powershellから`git push origin master`を実行したときに、sshキーが読めない問題が発生。
+
+```ps1
+PS C:\Users\富雄一\win_ws> git push origin master
+The authenticity of host 'github.com (20.27.177.113)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/c/Users/\225x\227Y\210\352/.ssh' (No such file or directory).
+Failed to add the host to the list of known hosts (/c/Users/\225x\227Y\210\352/.ssh/known_hosts).
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+- このほかにも、nvm/npmあたりで日本語パス問題が発生していた。
+- **コマンドプロンプト**で、管理者権限から以下のシンボリックリンクを作成する。
+> powershellではmklinkは認識されなかった
+
+```ps1
+mklink /J "C:\Users\tomi" "C:\Users\富雄一"
+
+# C:\Windows\System32>mklink /J "C:\Users\tomi" "C:\Users\富雄一"
+# C:\Users\tomi <<===>> C:\Users\富雄一 のジャンクションが作成されました
 
 ```
