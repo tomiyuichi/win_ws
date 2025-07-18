@@ -1,0 +1,17 @@
+{
+  "folders": [
+    // {
+    //   "path": "documents"
+    // },
+    // {
+    //   "path": "reports"
+    // },
+    {
+      "path": "scripts"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {}
+}
