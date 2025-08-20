@@ -1,0 +1,12 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title sampleclass
+
+class Encoder{
+    + translate()
+}
+Interface Reader
+Reader <|-- CsvReader
+Encoder .> Reader
+@enduml

@@ -6,9 +6,9 @@
     // {
     //   "path": "reports"
     // },
-    {
-      "path": "scripts"
-    },
+    // {
+    //   "path": "scripts"
+    // },
     {
       "path": "."
     }
